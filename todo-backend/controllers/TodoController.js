@@ -14,8 +14,8 @@ exports.getTodo = async (req, res) => {
 
     }
     catch (error) {
-        logger.error("failed while fetching the data form the DB")
-        res.status(500).json({ message: "Something goes wrong while connecting to DB" });
+        logger.error(`failed while fetching the data form the DB: ${error.message}`)
+        res.status(500).json({ message: "Something goes wrong while connecting to DB", error: error.message });
     }
 }
 
@@ -27,10 +27,9 @@ exports.postTodo = async (req, res) => {
         });
         const newTodo = await todo.save();
         res.status(201).json(newTodo);
-    }
-    catch (error) {
-        logger.error("adding new todo failed, :", error.message)
-        res.status(500).json("Error received while adding todo")
+    } catch (error) {
+        logger.error(`adding new todo failed: ${error.message}`)
+        res.status(500).json({ message: "Failed to add todo", error: error.message });
     }
 }
 
@@ -45,8 +44,8 @@ exports.deleteTodo = async (req, res) => {
         return res.status(200).json({ message: "todo item deleted, deleted item is", deleted })
 
     } catch (err) {
-
-        return res.status(500).json({ message: "server error", err })
+        logger.error(`delete todo failed: ${err.message}`)
+        return res.status(500).json({ message: "server error", error: err.message })
 
     }
 
