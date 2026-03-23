@@ -1,9 +1,0 @@
-#SPDX-License-Identifier: MIT-0
----
-# defaults file for ec2_launch
-region: us-east-1
-ami_id: ami-07ff62358b87c7116
-ports:
-  - 80
-  - 22
-  - 443

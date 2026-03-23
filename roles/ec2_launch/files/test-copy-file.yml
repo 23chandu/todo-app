@@ -1,8 +1,0 @@
----
-- name: just a test yaml playbook
-  hosts: localhost
-
-  tasks:
-    - name: printing something
-      debug:
-        msg: "This is a test playbook which will be trated as a file for coyping to the instance"

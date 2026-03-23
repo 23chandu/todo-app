@@ -1,5 +1,0 @@
-#SPDX-License-Identifier: MIT-0
----
-# vars file for ec2_launch
-ansible_python_interpreter: /usr/bin/python3
-ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
