@@ -1,4 +1,4 @@
-const BACKEND_URL = "http://localhost:3001/api/data"
+const BACKEND_URL = process.env.BACKEND
 
 
 export default BACKEND_URL
